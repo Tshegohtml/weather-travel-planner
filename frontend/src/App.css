@@ -1,0 +1,5 @@
+.App {
+  height: 100vh;
+  background-image: url("../src/assets/bluesky.jpg");
+  background-size: fixed;
+}
