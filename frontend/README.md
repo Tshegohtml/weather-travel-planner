@@ -11,7 +11,7 @@ Weather Travel Planner is a web application that helps users plan their travel b
 
 ## Live Demo
 
-You can try the app live here: [Weather Travel Planner Live Demo](https://weather-travel-planner.web.app)
+You can try the app live here: [Weather Travel Planner Live Demo](https://weather-travel-planner-73lv.onrender.com/)
 
 ## Technologies Used
 
