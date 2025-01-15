@@ -19,8 +19,8 @@ interface WeatherData {
 }
 
 interface DailyCardProps {
-  weather: WeatherData | null; // Accept weather data as a prop
-  city: string; // Accept city name as a prop
+  weather: WeatherData | null;
+  city: string; 
 }
 
 const DailyCard: React.FC<DailyCardProps> = ({ weather, city }) => {
@@ -71,12 +71,12 @@ const DailyCard: React.FC<DailyCardProps> = ({ weather, city }) => {
       {/* Weather display for 3-hour forecast */}
       <p className="mt-4 ms-4">3-Hour Forecast</p>
       <hr />
-      <div className="d-flex justify-content-between rounded-5 m-3 p-2 gap-2">
+      <div className="d-flex justify-content-between rounded-5 m-3 p-2 gap-2 ">
         {weather.list.slice(0, 5).map((forecast, index) => (
           <div
             key={index}
-            className="text-center border rounded-5 p-2 mb-3 bg-dark bg-opacity-25 text-white"
-            style={{ flexBasis: "calc(33.33% - 10px)" }} // Making the cards responsive
+            className="text-center border rounded-5 p-2 mb-3 bg-dark bg-opacity-25 text-white shadow"
+            style={{ flexBasis: "calc(33.33% - 10px)" }}
           >
             {/* Weather Icon */}
             <div>{getWeatherIcon(forecast.weather[0].icon)}</div>
@@ -98,12 +98,12 @@ const DailyCard: React.FC<DailyCardProps> = ({ weather, city }) => {
       <hr />
       <div className="d-flex justify-content-between rounded-5 m-3 p-2 gap-2">
         {weather.list
-          .filter((_, index) => index % 8 === 0) // Select one entry per day for the 5-day forecast
+          .filter((_, index) => index % 8 === 0)
           .map((forecast, index) => (
             <div
               key={index}
-              className="text-center border rounded-5 p-2 mb-3 bg-dark bg-opacity-25 text-white"
-              style={{ flexBasis: "calc(19.99% - 10px)" }} // Making the cards responsive
+              className="text-center border rounded-5 p-2 mb-3 bg-dark bg-opacity-25 text-white shadow"
+              style={{ flexBasis: "calc(19.99% - 10px)" }}
             >
               {/* Weather Icon */}
               <div>{getWeatherIcon(forecast.weather[0].icon)}</div>

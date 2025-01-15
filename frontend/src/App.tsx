@@ -64,8 +64,11 @@ function App() {
 
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=83a92bfaa1d2f62fbdad97759023c5e4&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${
+          import.meta.env.VITE_WEATHER_API_KEY
+        }&units=metric`
       );
+
       const data = await response.json();
 
       if (response.ok) {

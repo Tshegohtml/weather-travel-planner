@@ -21,7 +21,7 @@ interface Place {
   description: string;
 }
 
-const GOOGLE_API_KEY = "AIzaSyD0-w9gc6EcOUQKHLXFeJWyzqpKgoBAuY4"; // Replace with your API key
+const GOOGLE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
 interface MapProps {
   city: string;
