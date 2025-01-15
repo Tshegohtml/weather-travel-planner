@@ -1,5 +1,8 @@
 .App {
-  height: 100vh;
-  background-image: url("../src/assets/bluesky.jpg");
-  background-size: fixed;
+  background: linear-gradient(to right, rgb(148, 131, 252), rgb(173, 123, 254)); /* Purple gradient */
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  overflow: hidden;
+  height: 100vh; /* Ensure the background covers the full height */
 }
