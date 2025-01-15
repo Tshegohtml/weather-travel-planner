@@ -21,7 +21,7 @@ interface Place {
   description: string;
 }
 
-const GOOGLE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+const GOOGLE_API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API; 
 
 interface MapProps {
   city: string;
@@ -123,7 +123,7 @@ const Map: React.FC<MapProps> = ({
       <LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
         <GoogleMap
           center={{ lat: coords?.lat, lng: coords?.lon }}
-          zoom={15}
+          zoom={13}
           mapContainerStyle={{
             width: "100%",
             height: "600px",

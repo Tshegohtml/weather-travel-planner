@@ -20,10 +20,9 @@ interface WeatherData {
 
 interface DailyCardProps {
   weather: WeatherData | null;
-  city: string; 
 }
 
-const DailyCard: React.FC<DailyCardProps> = ({ weather, city }) => {
+const DailyCard: React.FC<DailyCardProps> = ({ weather }) => {
 
   // Get weather icon from OpenWeatherMap
   const getWeatherIcon = (icon: string) => {
@@ -59,10 +58,10 @@ const DailyCard: React.FC<DailyCardProps> = ({ weather, city }) => {
   return (
     <div>
       {/* Weather display */}
-      <h2 className="text-center m-4"><i className="bi bi-geo-alt-fill"></i>{" "}{city} - {weather.city.name}, {weather.city.country}</h2>
+      <h2 className="text-center m-4"><i className="bi bi-geo-alt-fill"></i>{" "}{weather.city?.name}, {weather.city?.country}</h2>
 
       {/* Error message */}
-      {weather && !weather.list.length && (
+      {weather && !weather?.list?.length && (
         <div style={{ color: "red", textAlign: "center" }}>
           <p>No weather data available for the selected city.</p>
         </div>
@@ -72,7 +71,7 @@ const DailyCard: React.FC<DailyCardProps> = ({ weather, city }) => {
       <p className="mt-4 ms-4">3-Hour Forecast</p>
       <hr />
       <div className="d-flex justify-content-between rounded-5 m-3 p-2 gap-2 ">
-        {weather.list.slice(0, 5).map((forecast, index) => (
+        {weather?.list?.slice(0, 5).map((forecast, index) => (
           <div
             key={index}
             className="text-center border rounded-5 p-2 mb-3 bg-dark bg-opacity-25 text-white shadow"
@@ -97,8 +96,7 @@ const DailyCard: React.FC<DailyCardProps> = ({ weather, city }) => {
       <p className="mt-4 ms-4">5-Day Forecast</p>
       <hr />
       <div className="d-flex justify-content-between rounded-5 m-3 p-2 gap-2">
-        {weather.list
-          .filter((_, index) => index % 8 === 0)
+        {weather?.list?.filter((_, index) => index % 8 === 0)
           .map((forecast, index) => (
             <div
               key={index}

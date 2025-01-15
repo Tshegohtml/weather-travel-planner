@@ -64,18 +64,9 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://weather-backend-cm86.onrender.com/api/weather",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            city: city,
-          }),
-        }
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`
       );
-
+      
       const data = await response.json();
 
       if (response.ok) {
@@ -149,7 +140,7 @@ function App() {
             {/* Weather and Forecast Component */}
             <div className="col-sm-4 border rounded-5 m-3 p-2 bg-dark bg-opacity-25">
               <div className="forecast">
-                <DailyCard weather={weather} city={city} />
+                <DailyCard weather={weather} />
               </div>
             </div>
             {/* Map Component */}
