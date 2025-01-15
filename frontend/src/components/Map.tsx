@@ -61,7 +61,7 @@ const Map: React.FC<MapProps> = ({
       });
 
       try {
-        const response = await axios.post("http://localhost:5000/api/places", {
+        const response = await axios.post("https://weather-backend-cm86.onrender.com/api/places", {
           lat: coords?.lat,
           lon: coords?.lon,
 

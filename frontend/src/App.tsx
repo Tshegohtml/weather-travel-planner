@@ -64,9 +64,16 @@ function App() {
 
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${
-          import.meta.env.VITE_WEATHER_API_KEY
-        }&units=metric`
+        "https://weather-backend-cm86.onrender.com/api/weather",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            city: city,
+          }),
+        }
       );
 
       const data = await response.json();
