@@ -1,8 +1,7 @@
 .App {
-  background: linear-gradient(to right, rgb(148, 131, 252), rgb(173, 123, 254)); /* Purple gradient */
+  background: linear-gradient(to right, rgb(148, 131, 252), rgb(173, 123, 254));
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
-  overflow: hidden;
-  height: 100vh; /* Ensure the background covers the full height */
+  height: 100vh; 
 }
