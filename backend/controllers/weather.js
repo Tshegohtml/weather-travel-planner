@@ -5,6 +5,7 @@ require('dotenv').config();
 const WEATHER_API_KEY = process.env.WEATHER_API;
 const GOOGLE_API_KEY =  process.env.GOOGLE_PLACES_API;
 
+
 // Fetch weather data for a specific city
 const getWeather = async (req, res) => {
     const { city } = req.body;

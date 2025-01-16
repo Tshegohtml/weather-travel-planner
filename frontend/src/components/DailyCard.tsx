@@ -62,15 +62,15 @@ const DailyCard: React.FC<DailyCardProps> = ({ weather }) => {
 
       {/* Error message */}
       {weather && !weather?.list?.length && (
-        <div style={{ color: "red", textAlign: "center" }}>
-          <p>No weather data available for the selected city.</p>
-        </div>
+        <div className="alert alert-danger" role="alert">
+        No weather data available for the selected city.
+      </div>
       )}
 
       {/* Weather display for 3-hour forecast */}
       <p className="mt-4 ms-4">3-Hour Forecast</p>
       <hr />
-      <div className="d-flex justify-content-between rounded-5 m-3 p-2 gap-2 ">
+      <div className="d-flex justify-content-center rounded-5 m-3 p-2 gap-2 ">
         {weather?.list?.slice(0, 5).map((forecast, index) => (
           <div
             key={index}
@@ -95,7 +95,7 @@ const DailyCard: React.FC<DailyCardProps> = ({ weather }) => {
       {/* 5-Day Forecast Section */}
       <p className="mt-4 ms-4">5-Day Forecast</p>
       <hr />
-      <div className="d-flex justify-content-between rounded-5 m-3 p-2 gap-2">
+      <div className="d-flex justify-content-center rounded-5 m-3 p-2 gap-2">
         {weather?.list?.filter((_, index) => index % 8 === 0)
           .map((forecast, index) => (
             <div

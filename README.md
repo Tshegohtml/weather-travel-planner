@@ -11,6 +11,9 @@ The **Weather Travel Planner** is an interactive application designed to enhance
 
 ---
 
+## App Demo
+[![Watch the video](https://raw.githubusercontent.com/Tshegohtml/weather-travel-planner/main/demo.mp4)
+
 ## Setup Instructions
 
 1. **Clone the Repository**:

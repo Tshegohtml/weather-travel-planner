@@ -5,6 +5,7 @@ import {
   LoadScript,
   Marker,
   InfoWindow,
+  
 } from "@react-google-maps/api";
 import Swal from "sweetalert2";
 
@@ -66,7 +67,7 @@ const Map: React.FC<MapProps> = ({
           lon: coords?.lon,
 
           // Get places based on weather
-          query: "tourist+attractions" + { activityType },
+          query: "tourist+attractions+" + { activityType },
         });
 
         if (response?.data?.places) {
@@ -112,7 +113,7 @@ const Map: React.FC<MapProps> = ({
 
   return (
     <div className="p-2">
-      <h3>Recommended Places</h3>
+      <h3>Recommended Activities</h3>
       <p>Click on a marker to view details</p>
       <hr />
 
@@ -123,7 +124,7 @@ const Map: React.FC<MapProps> = ({
       <LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
         <GoogleMap
           center={{ lat: coords?.lat, lng: coords?.lon }}
-          zoom={13}
+          zoom={12}
           mapContainerStyle={{
             width: "100%",
             height: "600px",
@@ -140,6 +141,9 @@ const Map: React.FC<MapProps> = ({
                 lat: place.geometry.location.lat,
                 lng: place.geometry.location.lng,
               }}
+              title={place.name}
+              animation={window.google.maps.Animation.DROP}
+              icon={"https://maps.google.com/mapfiles/ms/icons/blue-pushpin.png"}
               onClick={() => setSelectedPlace(place)}
             />
           ))}

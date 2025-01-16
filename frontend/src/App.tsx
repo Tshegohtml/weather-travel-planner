@@ -64,9 +64,11 @@ function App() {
 
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${
+          import.meta.env.VITE_WEATHER_API_KEY
+        }&units=metric`
       );
-      
+
       const data = await response.json();
 
       if (response.ok) {
@@ -131,12 +133,16 @@ function App() {
 
       {/* Display loading or error messages */}
       {isLoading && <p>Loading...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && (
+        <div className="alert alert-danger" role="alert">
+          {error}
+        </div>
+      )}
 
       {/* Render Map and Weather only if city is selected */}
       {city && (
         <div>
-          <div className="d-flex justify-content-between p-2 mb-4">
+          <div className="d-flex flex justify-content-between p-2 mb-4">
             {/* Weather and Forecast Component */}
             <div className="col-sm-4 border rounded-5 m-3 p-2 bg-dark bg-opacity-25">
               <div className="forecast">
@@ -157,11 +163,13 @@ function App() {
           </div>
 
           {/* Places Component to display places to visit */}
-          <div className="border rounded-5 m-3 p-2 bg-dark bg-opacity-25 shadow">
-            {placesToVisit.length > 0 && (
-              <Places placesToVisit={placesToVisit} />
-            )}
-          </div>
+          {placesToVisit.length > 0 && (
+            <div className="border rounded-5 m-3 p-2 bg-dark bg-opacity-25 shadow">
+              {placesToVisit.length > 0 && (
+                <Places placesToVisit={placesToVisit} />
+              )}
+            </div>
+          )}
         </div>
       )}
     </div>
