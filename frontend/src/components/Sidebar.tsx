@@ -29,7 +29,7 @@ function Sidebar({ setCity }: SidebarProps) {
   const [showRegister, setShowRegister] = useState<boolean>(false);
   const [showFavorites, setShowFavorites] = useState<boolean>(false);
   const [loginData, setLoginData] = useState({ email: "", password: "" });
-  const [registerData, setRegisterData] = useState({ email: "", password: "" });
+  const [registerData, setRegisterData] = useState({ email: "", firstName: "", lastName: "", password: "" });
 
   // Get user's location using the browser's geolocation API
   const getLocation = async () => {
@@ -104,7 +104,7 @@ function Sidebar({ setCity }: SidebarProps) {
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://your-api-url.com/api/login", loginData);
+      const response = await axios.post("https://weather-backend-cm86.onrender.com/api/Login", loginData);
       Swal.fire({
         title: "Success!",
         text: "You have logged in successfully.",
@@ -124,8 +124,9 @@ function Sidebar({ setCity }: SidebarProps) {
   // Register function
   const handleRegisterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log(registerData);
     try {
-      const response = await axios.post("https://your-api-url.com/api/register", registerData);
+      const response = await axios.post("https://weather-backend-cm86.onrender.com/api/SignUp", registerData);
       Swal.fire({
         title: "Success!",
         text: "You have registered successfully.",
@@ -242,6 +243,26 @@ function Sidebar({ setCity }: SidebarProps) {
                 placeholder="Enter email"
                 name="email"
                 value={registerData.email}
+                onChange={handleRegisterChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter first name"
+                name="firstName"
+                value={registerData.firstName}
+                onChange={handleRegisterChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter last name"
+                name="lastName"
+                value={registerData.lastName}
                 onChange={handleRegisterChange}
               />
             </Form.Group>

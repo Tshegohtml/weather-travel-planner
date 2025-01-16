@@ -118,7 +118,13 @@ const Map: React.FC<MapProps> = ({
       <hr />
 
       {/* Loading spinner */}
-      {loading && <p>Loading nearby places...</p>}
+      {loading && (
+        <div className="text-center">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      )}
 
       {/* Google Map */}
       <LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
@@ -189,12 +195,18 @@ const Map: React.FC<MapProps> = ({
                 )}
 
                 {/* Buttons */}
-                <div className="mt-2">
+                <div className="mt-2 d-flex justify-content-center gap-2">
                   <button
                     className="btn btn-primary btn-sm"
                     onClick={handleAddLocation}
                   >
                     <i className="bi bi-geo-fill"></i> Visit
+                  </button>
+                  <button
+                    className="btn btn-primary btn-sm"
+                    onClick={handleAddLocation}
+                  >
+                    <i className="bi bi-hand-thumbs-up-fill"></i> Like
                   </button>
                 </div>
               </div>
